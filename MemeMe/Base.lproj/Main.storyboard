@@ -32,6 +32,12 @@
                                     <constraint firstAttribute="width" constant="240" id="G8Y-BD-QoL"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBi-p4-wO7">
+                                <rect key="frame" x="252" y="133" width="49" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-By-QhX">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,21 +60,33 @@
                                     </mask>
                                 </variation>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Jh-xl-234">
+                                <rect key="frame" x="252" y="429" width="80" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nPP-yc-9aP" firstAttribute="top" secondItem="sBi-p4-wO7" secondAttribute="bottom" constant="73" id="A6O-Cy-vDH"/>
                             <constraint firstItem="NJb-Ux-SQx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CK2-Zw-fFL"/>
                             <constraint firstItem="aWk-By-QhX" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="MTz-Xh-zFu"/>
                             <constraint firstItem="aWk-By-QhX" firstAttribute="trailing" secondItem="NJb-Ux-SQx" secondAttribute="trailing" id="TAP-0V-Au2"/>
                             <constraint firstItem="aWk-By-QhX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="X4a-Nu-rqp"/>
                             <constraint firstItem="nPP-yc-9aP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lSA-4B-71v"/>
+                            <constraint firstItem="2Jh-xl-234" firstAttribute="top" secondItem="nPP-yc-9aP" secondAttribute="bottom" constant="65" id="me5-5I-2dt"/>
                             <constraint firstItem="aWk-By-QhX" firstAttribute="leading" secondItem="NJb-Ux-SQx" secondAttribute="leading" id="mud-47-f9Z"/>
+                            <constraint firstItem="2Jh-xl-234" firstAttribute="leading" secondItem="nPP-yc-9aP" secondAttribute="trailing" constant="-168" id="o7f-7r-sx0"/>
+                            <constraint firstItem="sBi-p4-wO7" firstAttribute="leading" secondItem="nPP-yc-9aP" secondAttribute="trailing" constant="-168" id="r12-Kr-q9I"/>
                             <constraint firstAttribute="trailing" secondItem="aWk-By-QhX" secondAttribute="trailing" id="ueU-bi-0On"/>
                             <constraint firstItem="nPP-yc-9aP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z6J-hA-IpQ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottom_texfield" destination="2Jh-xl-234" id="i0n-cv-v1T"/>
                         <outlet property="image_view" destination="nPP-yc-9aP" id="oxF-7h-ZGi"/>
+                        <outlet property="top_textfield" destination="sBi-p4-wO7" id="Obb-uG-JtX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

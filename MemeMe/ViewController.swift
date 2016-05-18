@@ -12,12 +12,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //UIImagePickerControllerDelegate protocol defines functionality for how image selected from ImagePicker should be processed.
     //UINavigationControllerDelegate needed to set this class as the protocol fot the delegate.
     
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.whiteColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : 5.0
+    ]
+    
     //outlet to the image being displaued in main view conttoller
     @IBOutlet weak var image_view: UIImageView!
+    
+    @IBOutlet weak var top_textfield: UITextField!
+    @IBOutlet weak var bottom_texfield: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        top_textfield.defaultTextAttributes = memeTextAttributes
+        bottom_texfield.defaultTextAttributes = memeTextAttributes
     }
 
     override func didReceiveMemoryWarning() {
