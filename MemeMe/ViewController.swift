@@ -34,7 +34,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         top_textfield.defaultTextAttributes = memeTextAttributes
         bottom_texfield.defaultTextAttributes = memeTextAttributes
         
+        top_textfield.textAlignment = .Center
         top_textfield.delegate = custom_textfield_delegate
+        
+        bottom_texfield.textAlignment = .Center
+        bottom_texfield.delegate = custom_textfield_delegate
+
     }
 
     override func didReceiveMemoryWarning() {
