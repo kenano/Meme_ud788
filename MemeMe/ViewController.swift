@@ -25,12 +25,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var top_textfield: UITextField!
     @IBOutlet weak var bottom_texfield: UITextField!
     
+    let custom_textfield_delegate = CustomTextFieldDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         top_textfield.defaultTextAttributes = memeTextAttributes
         bottom_texfield.defaultTextAttributes = memeTextAttributes
+        
+        top_textfield.delegate = custom_textfield_delegate
     }
 
     override func didReceiveMemoryWarning() {
