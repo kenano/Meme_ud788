@@ -25,13 +25,6 @@
                                     <barButtonItem title="Item" id="pO5-rl-Um6"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nPP-yc-9aP">
-                                <rect key="frame" x="20" y="91" width="560" height="435"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="435" id="7XV-2V-LOb"/>
-                                    <constraint firstAttribute="width" constant="560" id="G8Y-BD-QoL"/>
-                                </constraints>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-By-QhX">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,6 +67,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nPP-yc-9aP">
+                                <rect key="frame" x="20" y="91" width="560" height="435"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="435" id="7XV-2V-LOb"/>
+                                    <constraint firstAttribute="width" constant="560" id="G8Y-BD-QoL"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="NJb-Ux-SQx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CK2-Zw-fFL"/>
