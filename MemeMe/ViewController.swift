@@ -13,10 +13,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //UINavigationControllerDelegate needed to set this class as the protocol fot the delegate.
     
     let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.whiteColor(),
+        NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : 5.0
+        NSStrokeWidthAttributeName : -5.0
     ]
     
     //outlet to the image being displaued in main view conttoller
@@ -101,16 +101,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //subscribes to observer which receives keyboard will show notifications.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
         //unsubscribes from the keyboard will show observer.
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
         view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+//        view.frame.origin.y += getKeyboardHeight(notification)
+        
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
