@@ -12,6 +12,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //UIImagePickerControllerDelegate protocol defines functionality for how image selected from ImagePicker should be processed.
     //UINavigationControllerDelegate needed to set this class as the protocol fot the delegate.
     
+    struct MemeImage {
+        var top_string: String?
+        var bottom_string: String?
+        var image: UIImage?
+        var meme_image: UIImage?
+        
+    }
+    
+    
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
@@ -124,9 +133,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        //get height the keyboard
+        
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
+    }
+    
+    func save() {
+        //Create the meme data structure. This stores all of the elements of a meme_image element.
+        
+        let meme_image = MemeImage( top_string: top_textfield.text!, bottom_string: bottom_texfield.text!, image: image_view.image, meme_image: generateMemedImage())
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar       
+        
+        return memedImage
     }
 }
 

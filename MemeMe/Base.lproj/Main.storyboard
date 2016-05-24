@@ -34,14 +34,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJb-Ux-SQx">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" id="Tmq-FU-7um"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MZR-aX-8FA"/>
-                                    <barButtonItem title="Item" id="pO5-rl-Um6"/>
-                                </items>
-                            </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-By-QhX">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +42,8 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VA7-fD-GGG"/>
-                                    <barButtonItem title="Camera" id="Pdq-RH-LbY"/>
+                                    <barButtonItem systemItem="camera" id="Pdq-RH-LbY"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="xEh-o3-VG4"/>
                                     <barButtonItem title="Album" id="gYi-jI-ebQ">
                                         <connections>
                                             <action selector="pickImageFromUIImagePicker:" destination="BYZ-38-t0r" id="E2E-fx-BXA"/>
@@ -74,6 +67,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJb-Ux-SQx">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="Tmq-FU-7um"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MZR-aX-8FA"/>
+                                    <barButtonItem title="Cancel" id="pO5-rl-Um6"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <constraints>
                             <constraint firstItem="NJb-Ux-SQx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CK2-Zw-fFL"/>
