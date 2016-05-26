@@ -168,11 +168,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        //when keyboard will be shown in certain situations it will be necessary to shift main view up.
+        
+        if(bottom_texfield.isFirstResponder()){
+            //view should only shift up if bottom textfield was selected.
+            //check if the bottom_textfield was first responder to confirm this.
+            
+            //calculate the size of the virtual keyboard and shift the main view up that amount.
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+        
     }
     
     func keyboardWillHide(notification: NSNotification){
-//        view.frame.origin.y += getKeyboardHeight(notification)
+        //When virt keyboard will be unshown set main view frame back to 0.
         
         view.frame.origin.y = 0
     }
