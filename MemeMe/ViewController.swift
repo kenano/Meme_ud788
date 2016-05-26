@@ -31,8 +31,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //outlet to the image being displaued in main view conttoller
     @IBOutlet weak var image_view: UIImageView!
     
+    //outlets to the textlabels
     @IBOutlet weak var top_textfield: UITextField!
     @IBOutlet weak var bottom_texfield: UITextField!
+    
+    //outet to button which sends meme_image
+    @IBOutlet weak var send_button: UIBarButtonItem!
+    
+    //outlet to the camera button.
+    @IBOutlet weak var camera_button: UIBarButtonItem!
     
     let custom_textfield_delegate = CustomTextFieldDelegate()
     
@@ -56,7 +63,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //Sign up to be notified when the keyboard appears
         subscribeToKeyboardNotifications()
+        
+        //check is camera is available on installed device. enable/disable camera button.
+        camera_button.enabled =  UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     
+        //when app is first displayed it doesnt have an image yet so user should not not be able to send it. disable the send button.
+        if image_view.image != nil {
+            send_button.enabled = true
+        }else{
+            send_button.enabled = false
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -71,6 +87,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
 
+
+    @IBAction func invokeMemeUpload(sender: AnyObject) {
+        //upload meme_image through ActivityViewController. 
+        //this will allow user to select how to upload the image.
+        
+        let upload_controller = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil )
+        
+        //present the view controller.
+        self.presentViewController(upload_controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func createImageFromCamera(sender: AnyObject) {
+        //invokes a camera viewcontroller to create an image.
+        
+        //load an instance of the ios provided view controller
+        let imagePickerController = UIImagePickerController()
+        
+        //set the imageController to get image from camera.
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        
+        //set the delegate from the UIImagePicker. this class is defining the protocol.
+        imagePickerController.delegate = self
+        
+        //present the view controller.
+        self.presentViewController(imagePickerController, animated: true, completion: nil)
+        
+    }
 
     @IBAction func pickImageFromUIImagePicker(sender: AnyObject) {
         //when user select "album" button this method is triggered which displays an ios include view controller
@@ -95,8 +138,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             image_view.image = image
             print("setting image")
+            send_button.enabled = true
         }else {
             print("something has gone wrong picking the image.")
+            send_button.enabled = false
         }
         picker.dismissViewControllerAnimated(true, completion: nil)
         
